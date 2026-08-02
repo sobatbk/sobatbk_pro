@@ -390,6 +390,16 @@
           </div>
           <div class="field" id="fieldNamaSiswa" style="display:none;"><label>Nama Siswa</label><input type="text" name="namaSiswa" placeholder="Nama anak yang bersekolah di sini"></div>
           <div class="field"><label>Alamat</label><textarea name="alamat" placeholder="Alamat lengkap"></textarea></div>
+          <div class="field">
+            <label>Kode Keamanan</label>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div id="captchaCodeBox" style="user-select:none; background:var(--surface-alt); border:1.5px solid var(--border); border-radius:var(--radius-md); padding:10px 16px; font-family:'Sora',sans-serif; font-weight:800; font-size:20px; letter-spacing:4px; min-width:130px; text-align:center;"></div>
+              <button type="button" class="btn btn-ghost btn-sm" onclick="refreshCaptcha()" title="Ganti kode">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+              </button>
+            </div>
+            <input type="text" name="captchaInput" required placeholder="Ketik kode di atas" autocomplete="off" style="margin-top:8px; text-transform:uppercase;">
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Kirim &amp; Ajukan Persetujuan</button>
         </form>
       </div>
@@ -586,7 +596,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 SOBAT BK. Hak Cipta Dilindungi.</span>
-      <span>Dibangun dengan Supabase</span>
+      <span>Mappaguru Online</span>
     </div>
   </div>
 </footer>
