@@ -99,7 +99,7 @@
           <div class="hero-actions">
             <a href="#layanan" class="btn btn-primary">Mulai Layanan BK</a>
             <a href="#portal" class="btn btn-ghost">Lihat Portal</a>
-            <a href="admin.html" class="btn btn-ghost">Guru BK</a>
+            <a href="admin.html" class="btn btn-accent" onclick="return bukaInfoGuruBK(event)">Guru BK</a>
           </div>
           <div class="hero-stats">
             <div class="hero-stat"><b id="statBerita">–</b><span>Berita</span></div>
@@ -136,77 +136,101 @@
       <h2>Guru BK Sekolah</h2>
       <p>Kenali Guru BK yang siap mendampingi dan membimbingmu.</p>
     </div>
-    <div id="listGuruBKBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listGuruBKBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listGuruBKBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listGuruBKBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 
   <!-- =========================================================
        PREVIEW: PENGUMUMAN TERBARU
        ========================================================= -->
   <div class="container" style="padding-top:56px;">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; max-width:none;">
       <div>
         <span class="eyebrow"><span class="eyebrow-dot"></span> Info Terkini</span>
         <h2>Pengumuman Terbaru</h2>
       </div>
       <a href="#pengumuman" class="btn btn-ghost btn-sm">Lihat Semua</a>
     </div>
-    <div id="listPengumumanBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listPengumumanBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listPengumumanBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listPengumumanBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 
   <!-- =========================================================
        PREVIEW: MEDIA TERBARU
        ========================================================= -->
   <div class="container" style="padding-top:56px;">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; max-width:none;">
       <div>
         <span class="eyebrow"><span class="eyebrow-dot"></span> Belajar Mandiri</span>
         <h2>Media Terbaru</h2>
       </div>
       <a href="#media" class="btn btn-ghost btn-sm" onclick="berandaBukaTabMedia('ajar')">Lihat Semua</a>
     </div>
-    <div id="listMediaBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listMediaBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listMediaBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listMediaBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 
   <!-- =========================================================
        PREVIEW: VIDEO TERBARU
        ========================================================= -->
   <div class="container" style="padding-top:56px;">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; max-width:none;">
       <div>
         <span class="eyebrow"><span class="eyebrow-dot"></span> Belajar Mandiri</span>
         <h2>Video Terbaru</h2>
       </div>
       <a href="#media" class="btn btn-ghost btn-sm" onclick="berandaBukaTabMedia('video')">Lihat Semua</a>
     </div>
-    <div id="listVideoBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listVideoBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listVideoBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listVideoBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 
   <!-- =========================================================
        PREVIEW: BERITA/ARTIKEL TERBARU
        ========================================================= -->
   <div class="container" style="padding-top:56px;">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; max-width:none;">
       <div>
         <span class="eyebrow"><span class="eyebrow-dot"></span> Kabar Sekolah</span>
         <h2>Berita &amp; Artikel Terbaru</h2>
       </div>
       <a href="#berita" class="btn btn-ghost btn-sm">Lihat Semua</a>
     </div>
-    <div id="listBeritaBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listBeritaBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listBeritaBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listBeritaBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 
   <!-- =========================================================
        PREVIEW: TESTIMONI TERBARU
        ========================================================= -->
   <div class="container" style="padding-top:56px; padding-bottom:20px;">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; max-width:none;">
       <div>
         <span class="eyebrow"><span class="eyebrow-dot"></span> Kata Mereka</span>
         <h2>Testimoni Terbaru</h2>
       </div>
       <a href="#testimoni" class="btn btn-ghost btn-sm">Lihat Semua</a>
     </div>
-    <div id="listTestimoniBeranda" class="grid grid-3"></div>
+    <div class="hscroll-wrap">
+      <button type="button" class="hscroll-arrow hscroll-arrow-left" onclick="scrollHscroll('listTestimoniBeranda',-1)" aria-label="Geser ke kiri"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div id="listTestimoniBeranda" class="hscroll"></div>
+      <button type="button" class="hscroll-arrow hscroll-arrow-right" onclick="scrollHscroll('listTestimoniBeranda',1)" aria-label="Geser ke kanan"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
   </div>
 </section>
 
@@ -472,8 +496,12 @@
           </details>
           <div id="chatWrapper" style="display:none; margin-top:20px;">
             <div class="chat-header-row">
-              <div>
-                <h4 style="margin-bottom:2px;" id="chatTitle">Percakapan</h4>
+              <div class="chat-guru-id">
+                <div class="chat-guru-avatar" id="chatGuruAvatar">?</div>
+                <div class="chat-guru-info">
+                  <h4 id="chatGuruNama">Guru BK</h4>
+                  <span class="chat-topic" id="chatTitle">Topik</span>
+                </div>
                 <span class="badge" id="chatStatusBadge" style="display:none;"></span>
               </div>
               <button type="button" class="btn btn-ghost btn-sm" onclick="closeChat()">Tutup</button>
@@ -591,7 +619,7 @@
       </div>
       <div>
         <h4>Untuk Guru BK</h4>
-        <ul><li><a href="admin.html">Login Admin / Guru BK</a></li></ul>
+        <ul><li><a href="admin.html" onclick="return bukaInfoGuruBK(event)" style="color:var(--accent); font-weight:700;">Login Admin / Guru BK</a></li></ul>
       </div>
     </div>
     <div class="footer-bottom">
@@ -661,6 +689,23 @@
       <div class="detail-desc" id="detailDesc" style="display:none;"></div>
       <div class="detail-actions" id="detailActions"></div>
     </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODAL DETAIL LAYANAN (Lapor/Booking/Saran/Izin)
+     ========================================================= -->
+<div class="modal-overlay" id="layananDetailModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('layananDetailModal')"><svg width="16" height="16"><use href="#ic-x"/></svg></button>
+    <span class="tag" id="layananDetailTag"></span>
+    <div class="layanan-detail-head">
+      <h3 id="layananDetailTitle"></h3>
+      <span class="badge" id="layananDetailBadge"></span>
+    </div>
+    <p class="layanan-detail-meta" id="layananDetailMeta"></p>
+    <div id="layananDetailBody"></div>
+    <div class="layanan-detail-actions" id="layananDetailActions"></div>
   </div>
 </div>
 
