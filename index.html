@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOBAT BK — Pro</title>
+<meta name="theme-color" content="#5B6EE1">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SOBAT BK">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- =========================================================
+     ICON SPRITE (garis tunggal, konsisten dengan tema soft)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <symbol id="ic-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></symbol>
+  <symbol id="ic-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10v4a2 2 0 002 2h1l3 5V6l-3 5H5a2 2 0 00-2 2z"/><path d="M13 8a5 5 0 010 8"/><path d="M17 5a9 9 0 010 14"/></symbol>
+  <symbol id="ic-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+  <symbol id="ic-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ic-news" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h6M7 12h10M7 16h10"/></symbol>
+  <symbol id="ic-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 100 18c1.5 0 2-1 1-2s-1-2 1-2h2a4 4 0 004-4 9 9 0 00-8-10z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16.5" cy="10.5" r="1"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5-6 6-3-3-4 4"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 01-11.5 7.2L4 20l1-4.8A8 8 0 1121 12z"/></symbol>
+  <symbol id="ic-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="ic-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0012 2z"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></symbol>
+  <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12l6 6L20 6"/></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></symbol>
+  <symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="ic-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></symbol>
+</defs>
+</svg>
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#beranda" class="brand">
+      <img src="logosobatbk.png" alt="Logo SOBAT BK" class="brand-mark">
+      <span>SOBAT BK</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#pengumuman">Pengumuman</a>
+      <a href="#portal">Portal</a>
+      <a href="#media">Media &amp; Video</a>
+      <a href="#berita">Berita</a>
+      <a href="#karya">Karya</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#testimoni">Testimoni/QnA</a>
+      <a href="#layanan" style="position:relative;">Layanan BK<span class="nav-badge-dot" id="navBadgeLayanan" style="display:none;"></span></a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-primary btn-sm" id="btnAuth" onclick="handleAuthButton()">Masuk</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- =========================================================
+     BERANDA
+     ========================================================= -->
+<section id="beranda" class="view active">
+  <div class="hero">
+    <svg class="blob" style="top:-120px; right:-140px; width:480px; height:480px;" viewBox="0 0 200 200">
+      <path fill="#E7EAFB" d="M45,-58C58,-49,68,-33,71,-16C74,1,70,20,60,36C50,52,34,64,15,69C-4,74,-25,72,-42,61C-59,50,-72,29,-74,7C-76,-16,-67,-40,-51,-53C-35,-67,-13,-70,6,-77C25,-84,32,-67,45,-58Z" transform="translate(100 100)"/>
+    </svg>
+    <svg class="blob" style="bottom:-100px; left:-120px; width:340px; height:340px;" viewBox="0 0 200 200">
+      <path fill="#FDEBE0" d="M39,-49C51,-42,61,-29,64,-14C67,1,63,18,53,31C43,45,27,54,9,59C-9,64,-28,64,-42,54C-56,45,-65,26,-67,7C-68,-13,-62,-32,-49,-45C-36,-58,-18,-64,-1,-63C15,-63,27,-56,39,-49Z" transform="translate(100 100)"/>
+    </svg>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Ruang aman untuk bercerita</span>
+          <h1>Melayani dengan Hati,<br>Membimbing ke Arah <span>Presisi</span></h1>
+          <p class="lead">SOBAT BK adalah pusat layanan Bimbingan &amp; Konseling online — konsultasi, pelaporan, booking jadwal, saran, dan izin, semua dalam satu tempat yang nyaman untuk siswa dan orang tua.</p>
+          <div class="hero-actions">
+            <a href="#layanan" class="btn btn-primary">Mulai Layanan BK</a>
+            <a href="#portal" class="btn btn-ghost">Lihat Portal</a>
+            <a href="admin.html" class="btn btn-ghost">Guru BK</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><b id="statBerita">–</b><span>Berita</span></div>
+            <div class="hero-stat"><b id="statVideo">–</b><span>Video</span></div>
+            <div class="hero-stat"><b id="statKarya">–</b><span>Karya Siswa</span></div>
+            <div class="hero-stat"><b id="statLayanan">5</b><span>Layanan BK</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="ic" style="background:var(--sage-tint); color:#2F7A47;"><svg width="20" height="20"><use href="#ic-chat"/></svg></div>
+            <div><div style="font-weight:700; font-size:13.5px;">Konsultasi</div><div style="font-size:11.5px; color:var(--text-faint);">Terhubung dengan Guru BK</div></div>
+          </div>
+          <div class="hero-card">
+            <div class="ic" style="background:var(--accent-tint); color:#B5652F;"><svg width="20" height="20"><use href="#ic-calendar"/></svg></div>
+            <div><div style="font-weight:700; font-size:13.5px;">Booking Jadwal</div><div style="font-size:11.5px; color:var(--text-faint);">Konseling tatap muka</div></div>
+          </div>
+          <div class="hero-card">
+            <div class="ic" style="background:var(--primary-tint); color:var(--primary-dark);"><svg width="20" height="20"><use href="#ic-flag"/></svg></div>
+            <div><div style="font-weight:700; font-size:13.5px;">Lapor Aman</div><div style="font-size:11.5px; color:var(--text-faint);">Rahasia &amp; terpantau</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- =========================================================
+       KARTU GURU BK SEKOLAH
+       ========================================================= -->
+  <div class="container" id="berandaGuruBK" style="padding-top:36px;">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Tim Kami</span>
+      <h2>Kartu Guru BK Sekolah</h2>
+      <p>Kenali Guru BK yang siap mendampingi dan membimbingmu.</p>
+    </div>
+    <div id="listGuruBKBeranda" class="grid grid-3"></div>
+  </div>
+
+  <!-- =========================================================
+       PREVIEW: PENGUMUMAN TERBARU
+       ========================================================= -->
+  <div class="container" style="padding-top:56px;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Info Terkini</span>
+        <h2>Pengumuman Terbaru</h2>
+      </div>
+      <a href="#pengumuman" class="btn btn-ghost btn-sm">Lihat Semua</a>
+    </div>
+    <div id="listPengumumanBeranda" class="grid grid-3"></div>
+  </div>
+
+  <!-- =========================================================
+       PREVIEW: MEDIA TERBARU
+       ========================================================= -->
+  <div class="container" style="padding-top:56px;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Belajar Mandiri</span>
+        <h2>Media Terbaru</h2>
+      </div>
+      <a href="#media" class="btn btn-ghost btn-sm" onclick="berandaBukaTabMedia('ajar')">Lihat Semua</a>
+    </div>
+    <div id="listMediaBeranda" class="grid grid-3"></div>
+  </div>
+
+  <!-- =========================================================
+       PREVIEW: VIDEO TERBARU
+       ========================================================= -->
+  <div class="container" style="padding-top:56px;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Belajar Mandiri</span>
+        <h2>Video Terbaru</h2>
+      </div>
+      <a href="#media" class="btn btn-ghost btn-sm" onclick="berandaBukaTabMedia('video')">Lihat Semua</a>
+    </div>
+    <div id="listVideoBeranda" class="grid grid-3"></div>
+  </div>
+
+  <!-- =========================================================
+       PREVIEW: BERITA/ARTIKEL TERBARU
+       ========================================================= -->
+  <div class="container" style="padding-top:56px;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Kabar Sekolah</span>
+        <h2>Berita &amp; Artikel Terbaru</h2>
+      </div>
+      <a href="#berita" class="btn btn-ghost btn-sm">Lihat Semua</a>
+    </div>
+    <div id="listBeritaBeranda" class="grid grid-3"></div>
+  </div>
+
+  <!-- =========================================================
+       PREVIEW: TESTIMONI TERBARU
+       ========================================================= -->
+  <div class="container" style="padding-top:56px; padding-bottom:20px;">
+    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Kata Mereka</span>
+        <h2>Testimoni Terbaru</h2>
+      </div>
+      <a href="#testimoni" class="btn btn-ghost btn-sm">Lihat Semua</a>
+    </div>
+    <div id="listTestimoniBeranda" class="grid grid-3"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PENGUMUMAN
+     ========================================================= -->
+<section id="pengumuman" class="section-alt view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Info Terkini</span>
+      <h2>Pengumuman</h2>
+      <p>Informasi resmi dan terkini dari ruang Bimbingan &amp; Konseling.</p>
+    </div>
+    <div id="listPengumuman" class="grid grid-3"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PORTAL
+     ========================================================= -->
+<section id="portal" class="view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Layanan Kami</span>
+      <h2>Portal Unggulan</h2>
+      <p>Akses layanan terpadu Bimbingan &amp; Konseling dan aplikasi pendukung dalam satu pintu.</p>
+    </div>
+    <div id="listPortal" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MEDIA & VIDEO
+     ========================================================= -->
+<section id="media" class="section-alt view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Belajar Mandiri</span>
+      <h2>Media &amp; Video</h2>
+      <p>Materi bimbingan dan video edukasi seputar karir, akademik, dan pengembangan diri.</p>
+    </div>
+    <div class="tabbar">
+      <button class="active" onclick="switchTab('media', 'ajar')">Media Ajar</button>
+      <button onclick="switchTab('media', 'video')">Video</button>
+    </div>
+    <div id="tab-media-ajar" class="tab-panel active"><div id="listMediaAjar" class="grid grid-4"></div></div>
+    <div id="tab-media-video" class="tab-panel"><div id="listVideo" class="grid grid-3"></div></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     BERITA / ARTIKEL
+     ========================================================= -->
+<section id="berita" class="view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Kabar &amp; Informasi</span>
+      <h2>Berita &amp; Artikel</h2>
+      <p>Dokumentasi kegiatan dan kabar terbaru seputar layanan BK di sekolah.</p>
+    </div>
+    <div id="listBerita" class="grid grid-3"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     KARYA
+     ========================================================= -->
+<section id="karya" class="section-alt view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Ekspresi Siswa</span>
+      <h2>Karya Siswa</h2>
+      <p>Ruang apresiasi untuk karya-karya kreatif hasil buah pikiran siswa.</p>
+    </div>
+    <div id="listKarya" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     GALERI
+     ========================================================= -->
+<section id="galeri" class="view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Dokumentasi</span>
+      <h2>Galeri Kegiatan</h2>
+      <p>Momen-momen kegiatan Bimbingan &amp; Konseling di lingkungan sekolah.</p>
+    </div>
+    <div id="listGaleri" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TESTIMONI / QNA
+     ========================================================= -->
+<section id="testimoni" class="section-alt view">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Suara Mereka</span>
+      <h2>Testimoni &amp; Tanya-Jawab</h2>
+      <p>Cerita dan pertanyaan seputar layanan BK dari siswa dan alumni.</p>
+    </div>
+    <div id="listTestimoni" class="testi-scroll" style="margin-bottom:32px;"></div>
+
+    <div style="max-width:600px; margin:0 auto 56px;">
+      <div id="testiLoggedOut" class="form-card" style="text-align:center;">
+        <h4>Punya cerita atau kesan tentang layanan BK?</h4>
+        <p style="color:var(--text-soft); font-size:14px; margin:8px 0 18px;">Masuk dengan akun Google untuk membagikan testimonimu. Testimoni akan tampil di sini setelah disetujui Guru BK.</p>
+        <button class="btn btn-primary" onclick="openLoginModal()">Masuk untuk Memberi Testimoni</button>
+      </div>
+      <form id="formTestimoni" class="form-card" style="display:none;" onsubmit="return submitTestimoni(event)">
+        <h4>Bagikan Testimoni Kamu</h4>
+        <div class="field">
+          <label>Peran</label>
+          <select name="peran" required>
+            <option value="Siswa">Siswa</option>
+            <option value="Orang Tua">Orang Tua</option>
+            <option value="Alumni">Guru</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Isi Testimoni</label>
+          <textarea name="isi" required maxlength="500" placeholder="Ceritakan pengalamanmu menggunakan layanan BK..."></textarea>
+          <div class="hint">Testimoni akan ditinjau Guru BK dulu sebelum tampil publik.</div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Kirim Testimoni</button>
+      </form>
+    </div>
+
+    <div style="max-width:720px; margin:0 auto;">
+      <h3 style="font-size:19px; margin-bottom:18px;">Pertanyaan Populer</h3>
+      <div id="listQna"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     LAYANAN BK
+     ========================================================= -->
+<section id="layanan" class="view">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto; margin-right:auto;">
+      <span class="eyebrow"><span class="eyebrow-dot"></span> Butuh Bantuan?</span>
+      <h2>Ruang Layanan BK</h2>
+      <p>Sampaikan laporan, konsultasi, booking jadwal, saran, dan izin secara online. Aman, mudah, dan terpantau langsung oleh Guru BK.</p>
+    </div>
+
+    <div class="layanan-wrap">
+      <!-- Kondisi: belum login -->
+      <div id="layananLoggedOut" class="layanan-lock">
+        <div class="ic-big"><svg width="30" height="30" style="color:var(--primary)"><use href="#ic-user"/></svg></div>
+        <h3 style="font-size:20px; margin-bottom:8px;">Masuk untuk Mengakses Layanan</h3>
+        <p style="color:var(--text-soft); font-size:14.5px; margin-bottom:24px;">Gunakan akun Google kamu untuk mulai Lapor, Konsultasi, Booking, Saran, atau mengajukan Izin.</p>
+        <button class="btn btn-primary" onclick="openLoginModal()">Masuk dengan Google</button>
+      </div>
+
+      <!-- Kondisi: sudah login tapi menunggu persetujuan / ditolak -->
+      <div id="layananPending" class="layanan-lock" style="display:none;">
+        <div class="ic-big" id="pendingIcon"><svg width="30" height="30" style="color:var(--accent)"><use href="#ic-clock"/></svg></div>
+        <span class="status-pill wait" id="pendingBadge">Menunggu Persetujuan</span>
+        <h3 style="font-size:20px; margin-bottom:8px;" id="pendingTitle">Akunmu Sedang Ditinjau</h3>
+        <p style="color:var(--text-soft); font-size:14.5px;" id="pendingText">Admin BK sedang memverifikasi data pendaftaranmu. Kamu akan bisa memakai layanan begitu akun disetujui.</p>
+      </div>
+
+      <!-- Kondisi: profil belum lengkap -->
+      <div id="layananCompleteProfile" style="display:none; max-width:480px; margin:0 auto;">
+        <h3 style="font-size:19px; margin-bottom:4px; text-align:center;">Lengkapi Profilmu Dulu, Yuk</h3>
+        <p style="color:var(--text-soft); font-size:14px; margin-bottom:22px; text-align:center;">Data ini akan diverifikasi Admin BK sebelum akunmu bisa dipakai.</p>
+        <form id="formProfil" class="form-card" onsubmit="return submitProfil(event)">
+          <div class="field">
+            <label>Saya adalah</label>
+            <div class="radio-group">
+              <label class="radio-chip"><input type="radio" name="statusUser" value="Siswa" required> Siswa</label>
+              <label class="radio-chip"><input type="radio" name="statusUser" value="Orang Tua"> Orang Tua</label>
+            </div>
+          </div>
+          <div class="field"><label>Nama Lengkap</label><input type="text" name="nama" required placeholder="Nama lengkap"></div>
+          <div class="row-2">
+            <div class="field"><label>Kelas</label><input type="text" name="kelas" placeholder="Contoh: VIII A"></div>
+            <div class="field"><label>Nomor HP/WA</label><input type="tel" name="noHp" required placeholder="08xxxxxxxxxx"></div>
+          </div>
+          <div class="field" id="fieldNamaSiswa" style="display:none;"><label>Nama Siswa</label><input type="text" name="namaSiswa" placeholder="Nama anak yang bersekolah di sini"></div>
+          <div class="field"><label>Alamat</label><textarea name="alamat" placeholder="Alamat lengkap"></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block">Kirim &amp; Ajukan Persetujuan</button>
+        </form>
+      </div>
+
+      <!-- Kondisi: aktif, tampilkan layanan -->
+      <div id="layananActive" style="display:none;">
+        <div class="layanan-tabs">
+          <button class="layanan-tab active" data-svc="lapor" onclick="switchLayanan('lapor')"><span class="nav-badge-dot" id="badgeLapor" style="display:none;"></span><div class="ic" style="background:var(--danger-tint); color:var(--danger); margin:0 auto 8px;"><svg width="18" height="18"><use href="#ic-flag"/></svg></div>Lapor</button>
+          <button class="layanan-tab" data-svc="konsultasi" onclick="switchLayanan('konsultasi')"><span class="nav-badge-dot" id="badgeKonsultasi" style="display:none;"></span><div class="ic" style="background:var(--primary-tint); color:var(--primary-dark); margin:0 auto 8px;"><svg width="18" height="18"><use href="#ic-chat"/></svg></div>Konsultasi</button>
+          <button class="layanan-tab" data-svc="booking" onclick="switchLayanan('booking')"><span class="nav-badge-dot" id="badgeBooking" style="display:none;"></span><div class="ic" style="background:var(--accent-tint); color:#B5652F; margin:0 auto 8px;"><svg width="18" height="18"><use href="#ic-calendar"/></svg></div>Booking</button>
+          <button class="layanan-tab" data-svc="saran" onclick="switchLayanan('saran')"><span class="nav-badge-dot" id="badgeSaran" style="display:none;"></span><div class="ic" style="background:var(--sage-tint); color:#2F7A47; margin:0 auto 8px;"><svg width="18" height="18"><use href="#ic-bulb"/></svg></div>Saran</button>
+          <button class="layanan-tab" data-svc="izin" onclick="switchLayanan('izin')"><span class="nav-badge-dot" id="badgeIzin" style="display:none;"></span><div class="ic" style="background:var(--primary-tint); color:var(--primary-dark); margin:0 auto 8px;"><svg width="18" height="18"><use href="#ic-doc"/></svg></div>Izin</button>
+        </div>
+
+        <!-- LAPOR -->
+        <div class="layanan-panel" id="panel-lapor">
+          <div class="form-card">
+            <h4>Buat Laporan Baru</h4>
+            <p class="layanan-desc">Laporkan kejadian bullying, kekerasan, atau hal lain yang kamu alami/saksikan. Bisa anonim, dan hanya Guru BK yang bisa membacanya.</p>
+            <form id="formLapor" onsubmit="return submitLapor(event)">
+              <div class="field">
+                <label>Identitas Pelapor</label>
+                <div class="radio-group">
+                  <label class="radio-chip checked"><input type="radio" name="anonim" value="0" checked> Cantumkan Nama</label>
+                  <label class="radio-chip"><input type="radio" name="anonim" value="1"> Anonim</label>
+                </div>
+              </div>
+              <div class="field"><label>Judul Laporan</label><input type="text" name="judul" required maxlength="120"></div>
+              <div class="field"><label>Kronologi / Isi Laporan</label><textarea name="isi" required maxlength="800"></textarea></div>
+              <div class="row-2">
+                <div class="field"><label>Nama Terduga Pelaku</label><input type="text" name="namaTerduga"></div>
+                <div class="field"><label>Lokasi Kejadian</label><input type="text" name="lokasi"></div>
+              </div>
+              <div class="row-2">
+                <div class="field"><label>Tanggal Kejadian</label><input type="date" name="tanggalKejadian"></div>
+                <div class="field"><label>Jam Kejadian</label><input type="time" name="jamKejadian"></div>
+              </div>
+              <div class="field">
+                <label>Bukti Foto (opsional — otomatis dikompres di bawah 100 KB)</label>
+                <label class="upload-box" id="uploadBoxLapor">
+                  <svg width="20" height="20" style="margin:0 auto 6px;"><use href="#ic-upload"/></svg>
+                  <span id="uploadLabelLapor">Klik untuk pilih foto</span>
+                  <input type="file" accept="image/*" name="bukti" style="display:none" onchange="handleFileSelect(event,'uploadBoxLapor','uploadLabelLapor')">
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Kirim Laporan</button>
+            </form>
+          </div>
+          <h4 style="margin-bottom:14px;">Riwayat Laporanku</h4>
+          <div id="riwayatLapor" class="riwayat-list"></div>
+        </div>
+
+        <!-- KONSULTASI -->
+        <div class="layanan-panel" id="panel-konsultasi" style="display:none;">
+          <div class="form-card">
+            <h4>Buat Sesi Konsultasi Baru</h4>
+            <p class="layanan-desc">Curhat atau tanya jawab langsung via chat dengan Guru BK pilihanmu. Sesi otomatis tersimpan sampai Guru BK menandainya selesai.</p>
+            <form id="formKonsultasi" onsubmit="return submitKonsultasi(event)">
+              <div class="field"><label>Pilih Guru BK</label><select name="guru" id="selectGuruKonsultasi" required></select></div>
+              <div class="field"><label>Topik Konsultasi</label><input type="text" name="judul" required maxlength="100"></div>
+              <div class="field"><label>Ceritakan Masalahmu (pesan pertama)</label><textarea name="pesanAwal" required maxlength="500"></textarea></div>
+              <button type="submit" class="btn btn-primary btn-block">Mulai Sesi Konsultasi</button>
+            </form>
+          </div>
+          <h4 style="margin-bottom:14px;">Sesi Konsultasiku</h4>
+          <div id="riwayatKonsultasi" class="riwayat-list" style="margin-bottom:12px;"></div>
+          <details class="konsultasi-selesai-wrap" id="riwayatKonsultasiSelesaiWrap" style="display:none;">
+            <summary id="riwayatKonsultasiSelesaiTitle">Riwayat Selesai</summary>
+            <div id="riwayatKonsultasiSelesai" class="riwayat-list" style="margin-top:6px; margin-bottom:24px;"></div>
+          </details>
+          <div id="chatWrapper" style="display:none; margin-top:20px;">
+            <div class="chat-header-row">
+              <div>
+                <h4 style="margin-bottom:2px;" id="chatTitle">Percakapan</h4>
+                <span class="badge" id="chatStatusBadge" style="display:none;"></span>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" onclick="closeChat()">Tutup</button>
+            </div>
+            <div class="chat-box">
+              <div class="chat-messages" id="chatMessages"></div>
+              <div class="chat-input" id="chatInputRow">
+                <textarea id="chatInput" placeholder="Tulis pesan..." maxlength="500"></textarea>
+                <button onclick="sendChatMessage()"><svg width="18" height="18" style="color:#fff"><use href="#ic-send"/></svg></button>
+              </div>
+              <div class="chat-closed-note" id="chatClosedNote" style="display:none;">
+                <span>Sesi ini sudah ditandai selesai oleh Guru BK — percakapan tidak bisa dilanjutkan lagi.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOOKING -->
+        <div class="layanan-panel" id="panel-booking" style="display:none;">
+          <div class="form-card">
+            <h4>Booking Konseling Tatap Muka</h4>
+            <p class="layanan-desc">Atur jadwal konseling tatap muka dengan Guru BK. Jadwal akan dikonfirmasi ulang oleh Guru BK sebelum hari-H.</p>
+            <form id="formBooking" onsubmit="return submitBooking(event)">
+              <div class="field"><label>Pilih Guru BK</label><select name="guru" id="selectGuruBooking" required></select></div>
+              <div class="field"><label>Keperluan / Topik</label><input type="text" name="keperluan" required maxlength="120"></div>
+              <div class="field"><label>Deskripsi Singkat</label><textarea name="deskripsi" maxlength="500"></textarea></div>
+              <div class="row-2">
+                <div class="field"><label>Tanggal Diinginkan</label><input type="date" name="tanggal" required></div>
+                <div class="field"><label>Jam Diinginkan</label>
+                  <select name="jam" required>
+                    <option value="">-- Pilih Jam --</option>
+                    <option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option>
+                    <option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
+                    <option>11:00</option><option>11:30</option><option>13:00</option><option>13:30</option><option>14:00</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Kirim Booking</button>
+            </form>
+          </div>
+          <h4 style="margin-bottom:14px;">Riwayat Bookingku</h4>
+          <div id="riwayatBooking" class="riwayat-list"></div>
+        </div>
+
+        <!-- SARAN -->
+        <div class="layanan-panel" id="panel-saran" style="display:none;">
+          <div class="form-card">
+            <h4>Tulis Saran Baru</h4>
+            <p class="layanan-desc">Sampaikan ide, kritik, atau masukan untuk sekolah. Saranmu akan ditinjau dan ditindaklanjuti oleh Guru BK.</p>
+            <form id="formSaran" onsubmit="return submitSaran(event)">
+              <div class="field"><label>Isi Saran</label><textarea name="isi" required maxlength="500" placeholder="Sampaikan saranmu untuk sekolah..."></textarea></div>
+              <button type="submit" class="btn btn-primary btn-block">Kirim Saran</button>
+            </form>
+          </div>
+          <h4 style="margin-bottom:14px;">Riwayat Saranku</h4>
+          <div id="riwayatSaran" class="riwayat-list"></div>
+        </div>
+
+        <!-- IZIN -->
+        <div class="layanan-panel" id="panel-izin" style="display:none;">
+          <div class="form-card">
+            <h4>Ajukan Izin Tidak Hadir / Sakit</h4>
+            <p class="layanan-desc">Ajukan izin tidak masuk sekolah karena sakit atau keperluan lain, lengkap dengan surat keterangan jika ada.</p>
+            <form id="formIzin" onsubmit="return submitIzin(event)">
+              <div class="field">
+                <label>Jenis Izin</label>
+                <div class="radio-group">
+                  <label class="radio-chip checked"><input type="radio" name="jenis" value="Tidak Hadir" checked> Tidak Hadir</label>
+                  <label class="radio-chip"><input type="radio" name="jenis" value="Sakit"> Sakit</label>
+                </div>
+              </div>
+              <div class="row-2">
+                <div class="field"><label>Tanggal Mulai</label><input type="date" name="tanggalMulai" required></div>
+                <div class="field"><label>Tanggal Selesai</label><input type="date" name="tanggalSelesai" required></div>
+              </div>
+              <div class="field"><label>Keterangan</label><textarea name="keterangan" required maxlength="300"></textarea></div>
+              <div class="field">
+                <label>Surat Keterangan (opsional — otomatis dikompres di bawah 100 KB)</label>
+                <label class="upload-box" id="uploadBoxIzin">
+                  <svg width="20" height="20" style="margin:0 auto 6px;"><use href="#ic-upload"/></svg>
+                  <span id="uploadLabelIzin">Klik untuk pilih berkas</span>
+                  <input type="file" accept="image/*" name="berkas" style="display:none" onchange="handleFileSelect(event,'uploadBoxIzin','uploadLabelIzin')">
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Kirim Pengajuan Izin</button>
+            </form>
+          </div>
+          <h4 style="margin-bottom:14px;">Riwayat Izinku</h4>
+          <div id="riwayatIzin" class="riwayat-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff; margin-bottom:14px;"><img src="logosobatbk.png" alt="Logo SOBAT BK" class="brand-mark">SOBAT BK</div>
+        <p style="font-size:13.5px; color:#B7B9DA; max-width:340px;">Sistem Online BK &amp; Administrasi Terpadu — pusat layanan informasi, konsultasi, dan administrasi Bimbingan &amp; Konseling.</p>
+      </div>
+      <div>
+        <h4>Jelajahi</h4>
+        <ul><li><a href="#pengumuman">Pengumuman</a></li><li><a href="#portal">Portal</a></li><li><a href="#berita">Berita</a></li><li><a href="#karya">Karya</a></li></ul>
+      </div>
+      <div>
+        <h4>Layanan BK</h4>
+        <ul><li><a href="#layanan">Lapor</a></li><li><a href="#layanan">Konsultasi</a></li><li><a href="#layanan">Booking</a></li><li><a href="#layanan">Izin</a></li></ul>
+      </div>
+      <div>
+        <h4>Untuk Guru BK</h4>
+        <ul><li><a href="admin.html">Login Admin / Guru BK</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SOBAT BK. Hak Cipta Dilindungi.</span>
+      <span>Dibangun dengan Supabase</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     MODAL LOGIN
+     ========================================================= -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loginModal')"><svg width="16" height="16"><use href="#ic-x"/></svg></button>
+    <h3>Masuk ke SOBAT BK</h3>
+    <p class="sub">Gunakan akun Google kamu untuk mengakses Layanan BK.</p>
+    <button class="google-btn" onclick="loginWithGoogle()">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 13 24 13c3.1 0 5.8 1.1 8 3l6-6C34.5 5.1 29.5 3 24 3c-7.6 0-14.1 4.3-17.7 10.7z"/><path fill="#4CAF50" d="M24 45c5.4 0 10.3-2.1 14-5.5l-6.5-5.5C29.4 35.9 26.8 37 24 37c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.9 40.5 16.4 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.5 5.5C41.5 35.9 44 30.5 44 24c0-1.4-.1-2.7-.4-3.5z"/></svg>
+      Masuk dengan Google
+    </button>
+  </div>
+</div>
+
+<!-- =========================================================
+     PENAMPIL IFRAME — Portal, Aplikasi, Pengumuman (mode "iframe")
+     ========================================================= -->
+<div class="frame-overlay" id="frameOverlay">
+  <div class="frame-bar">
+    <h4 id="frameTitle">Memuat…</h4>
+    <div class="actions">
+      <button class="btn btn-ghost btn-sm" onclick="closeFrameViewer()">Tutup ✕</button>
+    </div>
+  </div>
+  <div class="frame-body"><iframe id="frameIframe" src="about:blank" title="Konten terkait"></iframe></div>
+</div>
+
+<!-- =========================================================
+     MODAL ARTIKEL BERITA (tampilan blog)
+     ========================================================= -->
+<div class="modal-overlay" id="articleModal">
+  <div class="modal modal-article">
+    <button class="modal-close" onclick="closeModal('articleModal')"><svg width="16" height="16"><use href="#ic-x"/></svg></button>
+    <div class="article-scroll" id="articleScroll">
+      <div class="article-cover" id="articleCover"></div>
+      <div class="article-body">
+        <span class="tag" id="articleTag"></span>
+        <h2 id="articleTitle" style="margin:10px 0 6px; font-size:24px;"></h2>
+        <div class="card-meta" id="articleMeta"></div>
+        <div class="article-content" id="articleContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODAL DETAIL (popup umum: Pengumuman, Portal, Media Ajar, Karya, Galeri)
+     ========================================================= -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-detail">
+    <button class="modal-close" onclick="closeModal('detailModal')"><svg width="16" height="16"><use href="#ic-x"/></svg></button>
+    <div class="detail-cover" id="detailCover" style="display:none;"></div>
+    <div class="detail-body">
+      <span class="tag" id="detailTag" style="display:none;"></span>
+      <h3 id="detailTitle"></h3>
+      <div class="detail-meta" id="detailMeta" style="display:none;"></div>
+      <div class="detail-desc" id="detailDesc" style="display:none;"></div>
+      <div class="detail-actions" id="detailActions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODAL VIDEO (pemutaran hybrid langsung di dalam aplikasi)
+     ========================================================= -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal modal-video">
+    <button class="modal-close" onclick="closeVideoModal()"><svg width="16" height="16"><use href="#ic-x"/></svg></button>
+    <div class="video-frame-wrap" id="videoFrameWrap"></div>
+    <div class="video-body">
+      <h3 id="videoTitle"></h3>
+      <p id="videoDesc"></p>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     ALERT MEWAH (pengganti confirm/alert bawaan browser)
+     ========================================================= -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-ic warn" id="confirmIcon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L14.7 3.86a2 2 0 00-3.4 0z"/></svg>
+    </div>
+    <h4 id="confirmTitle">Yakin?</h4>
+    <p id="confirmMsg"></p>
+    <div class="confirm-actions">
+      <button type="button" class="btn btn-ghost" id="confirmCancelBtn">Batal</button>
+      <button type="button" class="btn btn-primary" id="confirmOkBtn">Ya, Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="index.obfuscated.js"></script>
+</body>
+</html>

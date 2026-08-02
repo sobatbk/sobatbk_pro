@@ -1,0 +1,15 @@
+{
+  "name": "SOBAT BK",
+  "short_name": "SOBAT BK",
+  "description": "Layanan Bimbingan & Konseling Online — UPTD SPF SMP Negeri 16 Makassar",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBFBFE",
+  "theme_color": "#6D5AE0",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "SOBAT BK — Admin",
+  "short_name": "SOBAT BK Admin",
+  "description": "Dashboard Admin & Guru BK — SOBAT BK",
+  "start_url": "./admin.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBFBFE",
+  "theme_color": "#6D5AE0",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
