@@ -75,6 +75,15 @@ input,select,textarea{font-family:inherit;}
 .nav-item:hover{background:var(--surface-alt);}
 .nav-item.active{background:var(--primary-tint); color:var(--primary-dark);}
 .nav-item .count{margin-left:auto; background:var(--danger); color:#fff; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:999px; min-width:18px; text-align:center;}
+.nav-item .count.pulse{animation:countPulse .6s ease;}
+@keyframes countPulse{0%{transform:scale(1);}30%{transform:scale(1.35); box-shadow:0 0 0 6px rgba(226,105,91,0.25);}100%{transform:scale(1);}}
+
+/* ---- Bel notifikasi live (layanan BK masuk) ---- */
+.topbar-right{display:flex; align-items:center; gap:10px;}
+.notif-bell{position:relative; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text-soft); background:var(--surface-alt); transition:.18s;}
+.notif-bell:hover{color:var(--primary-dark); background:var(--primary-tint);}
+.notif-bell.on{color:var(--primary-dark); background:var(--primary-tint);}
+.notif-bell-dot{position:absolute; top:8px; right:8px; width:8px; height:8px; border-radius:50%; background:var(--danger); box-shadow:0 0 0 2px var(--surface);}
 .sidebar-foot{margin-top:auto; padding-top:14px; border-top:1px solid var(--border);}
 .guru-chip{display:flex; align-items:center; gap:10px; padding:8px 10px;}
 .guru-chip .av{width:34px; height:34px; border-radius:50%; background:var(--primary-tint); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0; overflow:hidden;}
@@ -223,6 +232,7 @@ input,select,textarea{font-family:inherit;}
 .toast.show{transform:translateX(-50%) translateY(0) scale(1); opacity:1;}
 .toast.error{background:linear-gradient(135deg,#E2695B,#C6493B);}
 .toast.success{background:linear-gradient(135deg,#3FA766,#2F7A47);}
+.toast.info{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); cursor:pointer;}
 
 /* ---- Alert mewah (pengganti confirm() bawaan browser) ---- */
 .confirm-overlay{position:fixed; inset:0; background:rgba(43,45,66,0.5); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:600; padding:20px;}
