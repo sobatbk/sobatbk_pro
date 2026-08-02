@@ -50,7 +50,7 @@
     <div class="nav-group">
       <div class="nav-item active" data-view="ringkasan" onclick="switchView('ringkasan')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
-        Ringkasan
+        Beranda
       </div>
     </div>
 
@@ -107,7 +107,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
         <div class="topbar-titles">
-          <h1 id="pageTitle">Ringkasan</h1>
+          <h1 id="pageTitle">Beranda</h1>
           <p id="pageSub">Gambaran umum aktivitas SOBAT BK hari ini.</p>
         </div>
       </div>
@@ -125,6 +125,8 @@
       <!-- ============ RINGKASAN ============ -->
       <section class="view active" id="view-ringkasan">
         <div class="welcome-banner" id="welcomeBanner"></div>
+        <div class="section-title" style="margin-top:0;">Total Pengguna Terdaftar</div>
+        <div class="user-stat-grid" id="userStatGrid"></div>
         <div class="stat-grid" id="statGrid"></div>
         <div class="section-title">Perlu Ditindaklanjuti</div>
         <div id="ringkasanUrgent"></div>
