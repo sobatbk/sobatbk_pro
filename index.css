@@ -200,6 +200,8 @@ section{padding:84px 0; position:relative;}
 .card h3{font-size:16.5px; font-weight:700;}
 .card p{color:var(--text-soft); font-size:14px;}
 .card-meta{font-size:12.5px; color:var(--text-faint); margin-top:auto; padding-top:10px;}
+.clamp-2{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+.clamp-3{display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
 .card-compact .card-media{aspect-ratio:16/11;}
 .card-compact .card-body{padding:13px 14px; gap:4px;}
 .card-compact h3{font-size:14px; line-height:1.3;}
