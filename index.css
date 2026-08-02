@@ -122,7 +122,7 @@ h1,h2,h3,h4{font-family: var(--font-display); line-height:1.2; letter-spacing:-0
 }
 
 /* ---- Hero ---- */
-.hero{position:relative; padding:70px 0 100px; overflow:hidden;}
+.hero{position:relative; padding:16px 0 100px; overflow:hidden;}
 .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; position:relative; z-index:1;}
 @media (max-width:900px){
   .hero{padding:44px 0 64px;}
@@ -186,6 +186,23 @@ section{padding:84px 0; position:relative;}
 .grid-4{grid-template-columns:repeat(4, 1fr);}
 @media (max-width: 980px){.grid-3{grid-template-columns:repeat(2,1fr);} .grid-4{grid-template-columns:repeat(2,1fr);}}
 @media (max-width: 640px){.grid-3, .grid-4{grid-template-columns:1fr;}}
+
+/* ---- Preview beranda: geser samping (bukan grid 3 teratas) ---- */
+.hscroll{display:flex; gap:20px; overflow-x:auto; padding:4px 4px 14px; margin:-4px -4px -10px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--border) transparent;}
+.hscroll::-webkit-scrollbar{height:7px;}
+.hscroll::-webkit-scrollbar-thumb{background:var(--border); border-radius:99px;}
+.hscroll::-webkit-scrollbar-track{background:transparent;}
+.hscroll > *{flex:0 0 auto; width:280px; scroll-snap-align:start;}
+.hscroll > .testi-card{width:300px;}
+@media (max-width:640px){.hscroll > *{width:250px;} .hscroll > .testi-card{width:270px;}}
+
+.hscroll-wrap{position:relative;}
+.hscroll-arrow{position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; background:var(--surface); border:1.5px solid var(--border); box-shadow:var(--shadow-soft); display:flex; align-items:center; justify-content:center; color:var(--text); cursor:pointer; z-index:5; transition:.15s;}
+.hscroll-arrow:hover{background:var(--primary); border-color:var(--primary); color:#fff;}
+.hscroll-arrow-left{left:-10px;}
+.hscroll-arrow-right{right:-10px;}
+@media (max-width:860px){.hscroll-arrow{width:34px; height:34px;} .hscroll-arrow-left{left:-6px;} .hscroll-arrow-right{right:-6px;}}
+@media (max-width:560px){.hscroll-arrow{display:none;}}
 
 .card.clickable{cursor:pointer;}
 .card{
@@ -278,6 +295,27 @@ section{padding:84px 0; position:relative;}
 .riwayat-item .btn-cancel-inline{padding:6px 12px; font-size:12px; border-radius:999px;}
 .riwayat-empty{text-align:center; padding:36px 20px; color:var(--text-faint); font-size:13.5px;}
 .layanan-desc{color:var(--text-soft); font-size:13.5px; margin:-6px 0 18px;}
+
+/* ---- Modal detail layanan (Lapor/Konsultasi/Booking/Saran/Izin) ---- */
+.layanan-detail-head{display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:4px;}
+.layanan-detail-head h3{font-size:19px; margin-bottom:0;}
+.layanan-detail-meta{font-size:12.5px; color:var(--text-faint); margin-bottom:20px;}
+.detail-block{background:var(--surface-alt); border-radius:var(--radius-sm); padding:12px 14px; margin-bottom:10px; font-size:13px;}
+.detail-block b{display:block; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-faint); margin-bottom:3px;}
+.detail-block p{color:var(--text); font-size:13.5px; line-height:1.6; white-space:pre-line;}
+.detail-block.tanggapan{background:var(--primary-tint); border:1px solid rgba(91,110,225,0.25);}
+.detail-block.tanggapan b{color:var(--primary-dark);}
+.detail-thumb{display:block; width:100%; max-height:220px; object-fit:cover; border-radius:var(--radius-sm); border:1px solid var(--border); margin-top:6px; cursor:zoom-in; transition:.15s;}
+.detail-thumb:hover{opacity:.9;}
+.layanan-detail-actions{margin-top:18px; display:none;}
+
+/* ---- Identitas Guru BK di header chat konsultasi ---- */
+.chat-guru-id{display:flex; align-items:center; gap:12px; min-width:0;}
+.chat-guru-avatar{width:42px; height:42px; border-radius:50%; overflow:hidden; background:var(--primary-tint); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; flex-shrink:0;}
+.chat-guru-avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+.chat-guru-info{min-width:0;}
+.chat-guru-info h4{font-size:15px; margin-bottom:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.chat-guru-info .chat-topic{font-size:12px; color:var(--text-faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block;}
 .badge{font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; white-space:nowrap; flex-shrink:0;}
 .badge.masuk, .badge.menunggu{background:var(--accent-tint); color:#B5652F;}
 .badge.diproses, .badge.ditindaklanjuti{background:#DDE6FB; color:#3355A8;}
